@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <title>Reconocimiento de voz</title>
+    <script src="plg-voice/artyom.js"></script>
+</head>
+<body>
+    <script>
+//Aquí se inicializa Artyom.js
+artyom.initialize({
+    continuous:true,// Reconoce 1 solo comando y basta de escuchar
+    lang:"es-ES",
+    debug:true, // Muestra un informe en la consola
+    listen:true // Iniciar !
+});
+        
+var commandHello = {
+    indexes:["hello","good morning","hey"], // These spoken words will trigger the execution of the command
+    action:function(){ // Action to be executed when a index match with spoken word
+        artyom.say("Hey buddy ! How are you today?");
+    }
+};
+artyom.addCommands(commandHello); // Add the command with addCommands method. Now
+
+var funcTime={
+    indexes:["hola"],
+    action: function(){
+        artyom.say("que tal");  
+    }
+};  
+artyom.addCommands(funcTime);
+
+
+/*
+        var funcnavegar={
+            indexes:["Navegar a *"],
+            smart: true,
+            action: function(i,str){
+                if((str=="Geolocalización")){
+                    artyom.say("Abriendo Geolocalización"); 
+                    window.open("http://localhost/reconocimeinto-de-voz/app-voice-geoloc.html","_blank");
+                }else if((str=="Comentarios") || (str=="comentarios")){
+                    artyom.say("Abriendo Comentarios"); 
+                    window.open("http://localhost/reconocimeinto-de-voz/app-voice-comen.html","_blank");
+                }else if((str=="Clima") || (str=="clima")){
+                    artyom.say("Abriendo Pronóstico del clima");    
+                    window.open("http://localhost/reconocimeinto-de-voz/app-voice-clima.html","_blank");
+            }else if((str=="Patologías") || (str=="patologias")){
+                    artyom.say("Abriendo Patologías Oculares"); 
+                    window.open("http://localhost/reconocimeinto-de-voz/app-voice-patocu.html","_blank");
+                }
+            }       
+        };  
+        artyom.addCommands(funcnavegar);
+*/
+    </script>
+    
+</body>
+</html>
