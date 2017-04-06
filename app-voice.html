@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+	<meta charset="UTF-8">
+	<title>Reconocimiento de voz</title>
+	<script src="plg-voice/artyom.js"></script>
+	
+
+</head>
+<body>
+	<script>
+var comandoHola = {
+	
+    indexes:["Hola","buenos días","holita"], // Decir alguna de estas palabras activara el comando
+    action:function(){ // Acción a ejecutar cuando alguna palabra de los indices es reconocida
+        artyom.say("Hola! como estás hoy?");
+    }
+};
+
+artyom.addCommands(comandoHola); // Agregar comando
+
+/*
+	//Aquí se inicializa Artyom.js
+		artyom.initialize({
+            lang:"es",// Más lenguajes son soportados, lee la documentación
+            continuous:true,// Reconoce 1 solo comando y basta de escuchar
+            debug:false, // Muestra un informe en la consola
+            listen:true // Iniciar !
+        });
+
+			artyom.say("Diga navegar a...");
+			artyom.say("y elija una opción:"); 
+			artyom.say("Geolocalización");
+			artyom.say("Comentarios");
+			artyom.say("Pronóstico del clima");
+			artyom.say("Patologías Oculares");
+
+
+		var funcTime={
+			indexes:["Que hora es"],
+			action: function(i){
+				if(i==0){
+					data= new Date();
+					horas = data.getHours();
+					minutos = data.getMinutes();
+					artyom.say("Son las "+horas+" con "+minutos+"minutos");	
+				}
+			}
+		};	
+
+
+		var funcnavegar={
+			indexes:["Navegar a *"],
+			smart: true,
+			action: function(i,str){
+				if((str=="Geolocalización")){
+					artyom.say("Abriendo Geolocalización");	
+					window.open("http://localhost/reconocimeinto-de-voz/app-voice-geoloc.html","_blank");
+				}else if((str=="Comentarios") || (str=="comentarios")){
+					artyom.say("Abriendo Comentarios");	
+					window.open("http://localhost/reconocimeinto-de-voz/app-voice-comen.html","_blank");
+				}else if((str=="Clima") || (str=="clima")){
+					artyom.say("Abriendo Pronóstico del clima");	
+					window.open("http://localhost/reconocimeinto-de-voz/app-voice-clima.html","_blank");
+			}else if((str=="Patologías") || (str=="patologias")){
+					artyom.say("Abriendo Patologías Oculares");	
+					window.open("http://localhost/reconocimeinto-de-voz/app-voice-patocu.html","_blank");
+				}
+			}		
+		};	
+
+		artyom.addCommands(funcTime);
+	    artyom.addCommands(funcnavegar);
+*/
+	</script>
+	
+</body>
+</html>
